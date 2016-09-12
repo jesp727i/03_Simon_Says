@@ -49,35 +49,37 @@ namespace _03_Simon_Says
 
         internal string Titleize(string v)
         {
-            string result = "";
-            string RStr;
-            int i = 0;
-            string[] words = v.Split(' ');
+            //Initialisere de variabler jeg skal bruge
+            string result = ""; //Endelige resultat
+            string RStr; //Er den variabel der til hvert ord der får stort får bogstav
+            int i = 0; //tæller til mit foreach loop
+            string[] words = v.Split(' '); //splitter den string der bliver sendt over, hvergang der er et mellemrum og ligger dem i et array
 
+            //løkke der løber i gennem mit array "words" og giver mig det enkelte ord som "str"
             foreach (string str in words)
             {
-                if (i == 0)
+                if (i == 0) //tjekker om det er den første plads i mit array
                 {
-                    RStr = char.ToUpper(str[0]) + str.Substring(1);
-                    result = result + RStr;
+                    RStr = char.ToUpper(str[0]) + str.Substring(1); // laver ordet i "str" om så det første bogstav er stort
+                    result = result + RStr; // ligger ordet i "RSts" oven i mit resultat
                 }
-                else
+                else // tager alle andre ord en det første i mit array
                 {
-                    if (str != "over" && str != "the" && str != "and" )
+                    if (str != "over" && str != "the" && str != "and" ) // thekker om ordet "str" er en af de ord som ikke skal være små
                     {
-                        RStr = char.ToUpper(str[0]) + str.Substring(1);
-                        result = result + " " + RStr;
+                        RStr = char.ToUpper(str[0]) + str.Substring(1); // laver ordet i "str" om så det første bogstav er stort
+                        result = result + " " + RStr;// laver et mellemrum og ligger ordet i "RSts" oven i mit resultat
                     }
-                    else
+                    else //bruges når ordet er et af dem der skal være små
                     {
-                        result = result + " " + str;
+                        result = result + " " + str; // ligger ordet "str" oven i min sætning uden at det bliver stort
                     }
 
                 }
-                i++;
+                i++; // tæller som fortæller om det er det første ord i mit array
             }
-
-            return result;
+            string t = "jesper";
+            return result; //retunerer mit resultat
         }
 
        
